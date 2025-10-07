@@ -27,10 +27,10 @@ interface ScheduleItem {
 
 const teamMembers: TeamMember[] = [
   { name: 'Atharva Lade', role: 'Software Developer' },
-  { name: 'Aniket Avasare', role: 'Software Developer' },
-  { name: 'Danny Torres', role: 'Software Developer' },
-  { name: 'Hayden Hoppe', role: 'Software Developer' },
-  { name: 'Jake Boles', role: 'Software Developer' },
+  { name: 'Aniket Avasare', role: 'System Design' },
+  { name: 'Danny Torres', role: 'UI/UX Designer' },
+  { name: 'Hayden Hoppe', role: 'Project Manager' },
+  { name: 'Jake Boles', role: 'AI Engineer' },
 ];
 
 const meetings: Meeting[] = [
