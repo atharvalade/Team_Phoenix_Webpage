@@ -34,80 +34,122 @@ const teamMembers: TeamMember[] = [
 ];
 
 const meetings: Meeting[] = [
+  // September 2025 - Tuesdays and Thursdays
   {
     id: 1,
-    title: 'Project Planning Session',
-    date: '2024-09-20',
-    time: '2:00 PM',
+    title: 'Introductions',
+    date: '2025-09-02',
+    time: '5:00 PM - 6:20 PM',
     type: 'meeting',
-    description: 'Initial project planning and task distribution'
+    description: 'Team introductions and course overview'
   },
   {
     id: 2,
-    title: 'Code Review Workshop',
-    date: '2024-09-25',
-    time: '3:30 PM',
-    type: 'activity',
-    description: 'Team code review and best practices discussion'
+    title: 'Stage 1 Planning',
+    date: '2025-09-04',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Initial project planning and requirements gathering'
   },
   {
     id: 3,
-    title: 'Sprint Retrospective',
-    date: '2024-09-27',
-    time: '1:00 PM',
+    title: 'SRS Review',
+    date: '2025-09-09',
+    time: '5:00 PM - 6:20 PM',
     type: 'meeting',
-    description: 'Review completed tasks and plan next sprint'
+    description: 'Software Requirements Specification review session'
   },
   {
     id: 4,
-    title: 'Technical Deep Dive',
-    date: '2024-10-02',
-    time: '4:00 PM',
-    type: 'activity',
-    description: 'Architecture discussion and technical challenges'
+    title: 'Database Planning',
+    date: '2025-09-11',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Database schema design and planning'
+  },
+  {
+    id: 5,
+    title: 'UI Brainstorm',
+    date: '2025-09-16',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'User interface design brainstorming session'
+  },
+  {
+    id: 6,
+    title: 'Code Development',
+    date: '2025-09-18',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Development sprint and code implementation'
+  },
+  {
+    id: 7,
+    title: 'Progress Review',
+    date: '2025-09-23',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Review development progress and blockers'
+  },
+  {
+    id: 8,
+    title: 'Code Development',
+    date: '2025-09-25',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Continued development and feature implementation'
+  },
+  {
+    id: 9,
+    title: 'Integration Testing',
+    date: '2025-09-30',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Testing and integration of components'
+  },
+  // October 2025
+  {
+    id: 10,
+    title: 'Slide Practice',
+    date: '2025-10-02',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Presentation preparation and practice'
+  },
+  {
+    id: 11,
+    title: 'Final Review',
+    date: '2025-10-07',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Final project review and preparation'
   },
 ];
 
 const upcomingSchedule: ScheduleItem[] = [
   {
     id: 1,
-    title: 'Milestone 1 Submission',
-    date: '2024-10-05',
+    title: 'Stage 2',
+    date: '2025-10-14',
     time: '11:59 PM',
     type: 'deadline',
-    description: 'First project milestone deliverable'
+    description: 'Stage 2 project deliverable submission'
   },
   {
     id: 2,
-    title: 'Weekly Team Standup',
-    date: '2024-10-07',
-    time: '10:00 AM',
-    type: 'meeting',
-    description: 'Regular team sync and progress update'
+    title: 'UI for the Project',
+    date: '2025-10-21',
+    time: '11:59 PM',
+    type: 'deadline',
+    description: 'User interface design and implementation deadline'
   },
   {
     id: 3,
-    title: 'Mid-term Presentation',
-    date: '2024-10-15',
-    time: '2:00 PM',
-    type: 'presentation',
-    description: 'Present project progress to class'
-  },
-  {
-    id: 4,
-    title: 'Code Integration Session',
-    date: '2024-10-12',
-    time: '3:00 PM',
-    type: 'meeting',
-    description: 'Merge and integrate individual components'
-  },
-  {
-    id: 5,
-    title: 'Final Project Demo',
-    date: '2024-11-20',
-    time: '1:00 PM',
-    type: 'presentation',
-    description: 'Final project demonstration and Q&A'
+    title: 'Backend Development',
+    date: '2025-10-28',
+    time: '11:59 PM',
+    type: 'deadline',
+    description: 'Backend development and API integration deadline'
   },
 ];
 
@@ -115,7 +157,9 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<'members' | 'meetings' | 'schedule'>('members');
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+    // Parse date as local time to avoid timezone issues
+    const [year, month, day] = dateString.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
     return date.toLocaleDateString('en-US', { 
       weekday: 'long', 
       year: 'numeric', 
