@@ -118,40 +118,138 @@ const meetings: Meeting[] = [
   },
   {
     id: 11,
-    title: 'Final Review',
+    title: 'Stage 2 Review',
     date: '2025-10-07',
     time: '5:00 PM - 6:20 PM',
     type: 'meeting',
-    description: 'Final project review and preparation'
+    description: 'Stage 2 deliverable review and feedback'
+  },
+  {
+    id: 12,
+    title: 'UI Development',
+    date: '2025-10-09',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'User interface implementation session'
+  },
+  {
+    id: 13,
+    title: 'Backend Planning',
+    date: '2025-10-14',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Backend architecture and API design'
+  },
+  {
+    id: 14,
+    title: 'Code Review',
+    date: '2025-10-16',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Team code review and quality check'
+  },
+  {
+    id: 15,
+    title: 'Feature Integration',
+    date: '2025-10-21',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Integrating frontend and backend components'
+  },
+  {
+    id: 16,
+    title: 'Testing Session',
+    date: '2025-10-23',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'System testing and bug identification'
+  },
+  {
+    id: 17,
+    title: 'Bug Fixes',
+    date: '2025-10-28',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Addressing identified bugs and issues'
+  },
+  {
+    id: 18,
+    title: 'Performance Review',
+    date: '2025-10-30',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Performance optimization and testing'
+  },
+  // November 2025
+  {
+    id: 19,
+    title: 'Documentation',
+    date: '2025-11-04',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Project documentation and user guides'
+  },
+  {
+    id: 20,
+    title: 'Final Testing',
+    date: '2025-11-06',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Final round of testing and validation'
+  },
+  {
+    id: 21,
+    title: 'Demo Preparation',
+    date: '2025-11-11',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Preparing project demonstration'
+  },
+  {
+    id: 22,
+    title: 'Slide Design',
+    date: '2025-11-13',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Final presentation slide design'
+  },
+  {
+    id: 23,
+    title: 'Practice Run',
+    date: '2025-11-18',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Full presentation practice run'
+  },
+  {
+    id: 24,
+    title: 'Final Polish',
+    date: '2025-11-20',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Final project polish and refinements'
+  },
+  {
+    id: 25,
+    title: 'Presentation Review',
+    date: '2025-11-25',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Final presentation review and feedback'
+  },
+  // December 2025
+  {
+    id: 26,
+    title: 'Final Presentation',
+    date: '2025-12-02',
+    time: '5:00 PM - 6:20 PM',
+    type: 'meeting',
+    description: 'Final project presentation to class'
   },
 ];
 
-const upcomingSchedule: ScheduleItem[] = [
-  {
-    id: 1,
-    title: 'Stage 2',
-    date: '2025-10-14',
-    time: '11:59 PM',
-    type: 'deadline',
-    description: 'Stage 2 project deliverable submission'
-  },
-  {
-    id: 2,
-    title: 'UI for the Project',
-    date: '2025-10-21',
-    time: '11:59 PM',
-    type: 'deadline',
-    description: 'User interface design and implementation deadline'
-  },
-  {
-    id: 3,
-    title: 'Backend Development',
-    date: '2025-10-28',
-    time: '11:59 PM',
-    type: 'deadline',
-    description: 'Backend development and API integration deadline'
-  },
-];
+// Project completed - no upcoming schedule items
+const upcomingSchedule: ScheduleItem[] = [];
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'members' | 'meetings' | 'schedule'>('members');
@@ -310,41 +408,21 @@ export default function Home() {
         {activeTab === 'schedule' && (
           <div className="space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Upcoming Schedule</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Project Status</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Important dates, deadlines, and upcoming events for our team to stay on track.
+                All milestones and deadlines for the Phoenix project.
               </p>
             </div>
 
-            <div className="space-y-6">
-              {upcomingSchedule.map((item) => (
-                <div
-                  key={item.id}
-                  className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getTypeColor(item.type)}`}>
-                          {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
-                        </span>
-                      </div>
-                      <p className="text-gray-600 mb-2">{item.description}</p>
-                      <div className="flex items-center space-x-4 text-sm text-gray-500">
-                        <span className="flex items-center space-x-1">
-                          <span>📅</span>
-                          <span>{formatDate(item.date)}</span>
-                        </span>
-                        <span className="flex items-center space-x-1">
-                          <span>🕐</span>
-                          <span>{item.time}</span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 text-center">
+              <div className="text-6xl mb-4">🎉</div>
+              <h3 className="text-2xl font-bold text-green-600 mb-2">Project Completed!</h3>
+              <p className="text-gray-600 mb-4">
+                The Phoenix team has successfully completed all project milestones and delivered the final presentation on December 2, 2025.
+              </p>
+              <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">
+                ✓ All Tasks Completed
+              </div>
             </div>
           </div>
         )}
